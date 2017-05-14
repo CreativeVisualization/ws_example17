@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ParticleVec2.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp{
     
@@ -19,7 +21,13 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    int width, height;
-	ofImage myImage;
-	unsigned char pixels;
+    static const int num = 20000;
+    ParticleVec2 particles[num];
+    ofVboMesh mesh;
+    bool pressed;
+    
+    ofxPanel gui;
+    ofxFloatSlider mass;
+    ofxFloatSlider friction;
+    ofxFloatSlider attractForce;
 };
