@@ -74,37 +74,7 @@ void ofApp::draw(){
     ofPushMatrix();
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
     ofRotateY(ofGetFrameNum());
-    
     mesh.draw();
-    
-    /*
-    //行の数だけくりかえし
-    for(int i = 0; i < csv.getNumRows(); i++) {
-        //1行ぶんのデータをとりだしてofxCsvRowに格納
-        ofxCsvRow row = csv[i];
-        //種類によって色分け
-        string type = row.getString(12);
-        if(type == "airport"){
-            ofSetColor(31, 127, 255);
-        } else if(type == "station"){
-            ofSetColor(31, 255, 127);
-        }else if(type == "port"){
-            ofSetColor(255, 127, 31);
-        } else {
-            ofSetColor(127);
-        }
-        //経度と緯度から球面上の位置を取得
-        ofQuaternion latRot, longRot, spinQuat;
-        latRot.makeRotate(row.getFloat(6), 1, 0, 0);
-        longRot.makeRotate(row.getFloat(7), 0, 1, 0);
-        spinQuat.makeRotate(ofGetFrameNum(), 0, 1, 0);
-        
-        ofVec3f center = ofVec3f(0,0,300);
-        ofVec3f worldPoint = latRot * longRot * spinQuat * center;
-        
-        ofDrawCircle(worldPoint, 1.2);
-    }
-    */
     ofPopMatrix();
     
     ofSetColor(255);
