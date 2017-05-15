@@ -39,11 +39,11 @@ void ofApp::draw(){
         //種類によって色分け
         string type = row.getString(12);
         if(type == "airport"){
-            ofSetColor(31, 127, 255);
+            ofSetColor(63, 127, 255);
         } else if(type == "station"){
-            ofSetColor(31, 255, 127);
+            ofSetColor(63, 255, 127);
         }else if(type == "port"){
-            ofSetColor(255, 127, 31);
+            ofSetColor(255, 127, 63);
         } else {
             ofSetColor(127);
         }
