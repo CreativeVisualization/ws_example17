@@ -1,3 +1,10 @@
+# repository specific
+
+Makefile
+config.make
+openFrameworks-Info.plist
+*.xcodeconfig
+
 #########################
 # openFrameworks patterns
 #########################
