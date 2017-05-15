@@ -3,10 +3,18 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofBackground(0);
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
     
     //ログの表示レベル
     ofSetLogLevel("ofxCsv", OF_LOG_VERBOSE);
+    
+    //メッシュの頂点を点で表示
     mesh.setMode(OF_PRIMITIVE_POINTS);
+    
+    //距離に応じて点の大きさを変える
+    static GLfloat distance[] = { 0.0, 0.0, 1.0 };
+    glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, distance);
+    glPointSize(1500);
     
     //円の解像度
     ofSetCircleResolution(3);
@@ -31,11 +39,11 @@ void ofApp::setup(){
         string type = row.getString(12);
         ofFloatColor color;
         if(type == "airport"){
-            color = ofFloatColor(0.2, 0.2, 1.0);
+            color = ofFloatColor(0.2, 0.5, 1.0);
         } else if(type == "station"){
-            color = ofFloatColor(1.0, 0.2, 0.2);
+            color = ofFloatColor(1.0, 0.5, 0.2);
         }else if(type == "port"){
-            color = ofFloatColor(0.2, 1.0, 0.2);
+            color = ofFloatColor(0.5, 1.0, 0.2);
         } else {
             color = ofFloatColor(0.8);
         }

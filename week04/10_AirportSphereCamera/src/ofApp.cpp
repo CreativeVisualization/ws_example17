@@ -6,8 +6,12 @@ void ofApp::setup(){
     
     //ログの表示レベル
     ofSetLogLevel("ofxCsv", OF_LOG_VERBOSE);
-    mesh.setMode(OF_PRIMITIVE_POINTS);
     ofEnableBlendMode(OF_BLENDMODE_ADD);
+    
+    //メッシュの頂点を点で表示
+    mesh.setMode(OF_PRIMITIVE_POINTS);
+    
+    //距離に応じて点の大きさを変える
     static GLfloat distance[] = { 0.0, 0.0, 1.0 };
     glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, distance);
     glPointSize(1500);
