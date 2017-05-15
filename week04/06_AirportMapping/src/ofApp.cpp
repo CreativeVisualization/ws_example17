@@ -6,6 +6,9 @@ void ofApp::setup(){
 
     //ログの表示レベル
     ofSetLogLevel("ofxCsv", OF_LOG_VERBOSE);
+
+    //円の解像度
+    ofSetCircleResolution(4);
     
     //CSVファイル読み込み
     if(csv.load("airports-extended.dat")) {
@@ -37,7 +40,7 @@ void ofApp::draw(){
         airportLoc.x = ofMap(row.getFloat(7), -180, 180, 0, ofGetWidth());
         airportLoc.y = ofMap(row.getFloat(6), 90, -90, 0, ofGetHeight());
         //取得した位置に円を描画
-        ofDrawCircle(airportLoc, 1);
+        ofDrawCircle(airportLoc, 1.5);
     }
 }
 
