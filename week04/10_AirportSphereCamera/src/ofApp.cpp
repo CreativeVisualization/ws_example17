@@ -50,8 +50,8 @@ void ofApp::setup(){
         longRot.makeRotate(row.getFloat(7), 0, 1, 0);
         spinQuat.makeRotate(ofGetFrameNum(), 0, 1, 0);
         
-        ofVec3f center = ofVec3f(0,0,300);
-        ofVec3f worldPoint = latRot * longRot * spinQuat * center;
+        ofVec3f radius = ofVec3f(0,0,300);
+        ofVec3f worldPoint = latRot * longRot * spinQuat * radius;
         
         mesh.addVertex(worldPoint);
         mesh.addColor(color);
