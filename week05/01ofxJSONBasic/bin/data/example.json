@@ -1,0 +1,10 @@
+{
+  "companyName":"Hoo Inc.",
+  "country":"Japan",
+  "numEmployees":3,
+  "employees":[
+    {"firstName":"John", "lastName":"Doe"},
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter", "lastName":"Jones"}
+  ]
+}
