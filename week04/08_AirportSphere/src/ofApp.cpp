@@ -50,6 +50,7 @@ void ofApp::draw(){
             ofSetColor(127);
         }
         //経度と緯度から球面上の位置を取得
+        
         ofQuaternion latRot, longRot, spinQuat;
         latRot.makeRotate(row.getFloat(6), 1, 0, 0);
         longRot.makeRotate(row.getFloat(7), 0, 1, 0);
@@ -57,6 +58,22 @@ void ofApp::draw(){
         
         ofVec3f radius = ofVec3f(0,0,ofGetHeight()/2.5);
         ofVec3f worldPoint = latRot * longRot * spinQuat * radius;
+        
+        //もしofQuaternionを使わず、経度(lon)と緯度(lat)から座標を(x,y,z)計算する公式を
+        //使って書くと次のようになる
+        
+        //float lat,lon,r;
+        //float x, y, z;
+        //lat = row.getFloat(6);
+        //lon = row.getFloat(7) + ofGetFrameNum();
+        //r = ofGetHeight()/2.5;
+        
+        //座標を計算する公式
+        //x = r * sin(PI/2 - ofDegToRad(lat)) * sin(ofDegToRad(lon));
+        //y = -1 * r * cos(PI/2 - ofDegToRad(lat));
+        //z = r * sin(PI/2 - ofDegToRad(lat)) * cos(ofDegToRad(lon));
+        
+        //ofVec3f worldPoint = ofVec3f(x,y,z);
         
         ofDrawCircle(worldPoint, 1.2);
     }
