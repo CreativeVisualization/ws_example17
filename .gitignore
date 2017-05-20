@@ -3,6 +3,7 @@
 #########################
 
 # repository specific
+
 Makefile
 config.make
 openFrameworks-Info.plist
@@ -139,3 +140,6 @@ Desktop.ini
 
 .mailmap
 /apps*/
+*.pbxproj
+*.xcscheme
+*.xcconfig
