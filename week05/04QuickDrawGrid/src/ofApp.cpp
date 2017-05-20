@@ -21,7 +21,6 @@ void ofApp::setup(){
         drawDataJson.push_back(jsonElement);
     }
     cout << "Done : read " << drawDataJson.size() << " drawings!"<< endl;
-    objectNum = 0;
 }
 
 void ofApp::update(){

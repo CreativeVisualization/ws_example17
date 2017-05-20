@@ -12,6 +12,4 @@ public:
     
     //JSON Elementの可変長配列
     vector<ofxJSONElement> drawDataJson;
-    //オブジェクト番号(行数)
-    int objectNum;
 };
