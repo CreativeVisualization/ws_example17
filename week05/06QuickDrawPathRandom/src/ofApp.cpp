@@ -10,17 +10,19 @@ void ofApp::setup(){
     //ファイルを指定
     string inputFile = "face.ndjson";
     ifstream input(ofToDataPath(inputFile), ifstream::in);
+    
     //JSONファイルを1行ずつ読み込む
     ofxJSONElement jsonElement;
     Json::Reader reader;
     string currentLine;
-    bool success = true;
-    while(success) {
-        getline(input, currentLine);
-        success = reader.parse(currentLine, jsonElement);
+    //最終行に行くまで1行読み込み
+    while(getline(input, currentLine)) {
+        //JSONElement形式にパース
+        reader.parse(currentLine, jsonElement);
         //読み込んだJSONデータを配列に追加
         drawDataJson.push_back(jsonElement);
     }
+    //ログ表示
     cout << "Done : read " << drawDataJson.size() << " drawings!"<< endl;
     
     //オブジェクト、ストローク、頂点の数、スケール、位置を初期化

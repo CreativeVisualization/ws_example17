@@ -2,6 +2,7 @@
 
 void ofApp::setup(){
     ofBackground(255);
+    ofSetBackgroundAuto(false);
     ofSetColor(0);
     ofSetLineWidth(2.0);
     ofNoFill();
@@ -39,18 +40,7 @@ void ofApp::draw(){
     ofPushMatrix();
     //位置を中心に
     ofTranslate(ofGetWidth()/2-128, ofGetHeight()/2-128);
-    
-    //いままで描いたパスを描画
-    for (int j = 0; j < strokeNum; j++) {
-        ofBeginShape();
-        for (int i = 0; i < drawDataJson[objectNum]["drawing"][j][0].size(); i++) {
-            int x = drawDataJson[objectNum]["drawing"][j][0][i].asInt();
-            int y = drawDataJson[objectNum]["drawing"][j][1][i].asInt();
-            ofVertex(x, y);
-        }
-        ofEndShape();
-    }
-    
+
     //最新のパスを描画
     ofBeginShape();
     for (int i = 0; i < vertexNum; i++) {
@@ -73,6 +63,10 @@ void ofApp::draw(){
             vertexNum = 0;
             strokeNum = 0;
             objectNum = int(ofRandom(drawDataJson.size()));
+            //画面更新
+            ofBackground(255);
+            //ちょっと間をあける
+            sleep(1);
         }
     }
 }
