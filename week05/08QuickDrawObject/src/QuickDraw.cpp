@@ -1,10 +1,8 @@
 #include "QuickDraw.hpp"
 
 QuickDraw::QuickDraw(ofxJSONElement _jsonElement){
-    jsonElement = _jsonElement;
-    
-    
     //オブジェクト、ストローク、頂点の数、スケール、位置、速度、重力を初期化
+    jsonElement = _jsonElement;
     strokeNum = 0;
     vertexNum = 0;
     scale = 0.1;
