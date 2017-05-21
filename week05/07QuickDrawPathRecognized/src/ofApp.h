@@ -18,4 +18,9 @@ public:
     int strokeNum;
     //頂点番号
     int vertexNum;
+    //スケール
+    float scale;
+    //描画位置
+    ofVec2f location;
+
 };

@@ -143,3 +143,4 @@ Desktop.ini
 *.pbxproj
 *.xcscheme
 *.xcconfig
+*.ndjson
