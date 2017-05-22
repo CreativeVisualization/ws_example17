@@ -2,9 +2,8 @@
 
 void ofApp::setup(){
     ofBackground(255);
-    //ofSetBackgroundAuto(false);
     ofSetColor(0);
-    ofSetLineWidth(2.0);
+    ofSetLineWidth(1.5);
     ofNoFill();
 
     //ファイルを指定
@@ -24,7 +23,7 @@ void ofApp::setup(){
     }
     //ログ表示
     cout << "Done : read " << drawDataJson.size() << " drawings!"<< endl;
-
+    //カーソル隠す
     ofHideCursor();
 }
 
