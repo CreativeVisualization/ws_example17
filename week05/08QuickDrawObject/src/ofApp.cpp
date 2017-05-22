@@ -32,7 +32,7 @@ void ofApp::update(){
         //QuickDrawオブジェクトを追加
         QuickDraw *q = new QuickDraw(drawDataJson[ofRandom(drawDataJson.size())]);
         q->location.y = 0;
-        q->velocity.y = ofRandom(1);
+        //q->velocity.y = ofRandom(1);
         quickDraw.push_back(q);
         //一定以上の数になったら先頭削除
         if (quickDraw.size() > 500) {

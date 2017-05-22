@@ -5,7 +5,7 @@ QuickDraw::QuickDraw(ofxJSONElement _jsonElement){
     jsonElement = _jsonElement;
     strokeNum = 0;
     vertexNum = 0;
-    scale = 0.1;
+    scale = 0.15;
     location = ofVec2f(ofRandom(ofGetWidth()) - 128 * scale,
                        ofRandom(ofGetHeight() - 128 * scale));
     velocity = ofVec2f(0, 0);
