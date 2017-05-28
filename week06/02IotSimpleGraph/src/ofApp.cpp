@@ -85,7 +85,7 @@ void ofApp::draw(){
     ofBeginShape();
     for (int i = 0; i < illuminance.size(); i++) {
         float x = ofMap(i, 0, illuminance.size(), graphRect.x, graphRect.x + graphRect.width);
-        float y = ofMap(illuminance[i], min, max, graphRect.y + graphRect.height, graphRect.y);
+        float y = ofMap(illuminance[i], min, max, graphRect.y, graphRect.y + graphRect.height);
         ofVertex(x, y);
     }
     ofEndShape();
