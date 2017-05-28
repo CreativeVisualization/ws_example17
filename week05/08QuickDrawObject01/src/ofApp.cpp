@@ -7,7 +7,7 @@ void ofApp::setup(){
     ofNoFill();
 
     //ファイルを指定
-    string inputFile = "face.ndjson";
+    string inputFile = "ant.ndjson";
     ifstream input(ofToDataPath(inputFile), ifstream::in);
     
     //JSONファイルを1行ずつ読み込む
