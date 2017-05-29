@@ -10,24 +10,12 @@ public:
     void update();
     void draw();
     
-    void keyPressed(int key);
-    void keyReleased(int key);
-    void mouseMoved(int x, int y );
-    void mouseDragged(int x, int y, int button);
-    void mousePressed(int x, int y, int button);
-    void mouseReleased(int x, int y, int button);
-    void mouseEntered(int x, int y);
-    void mouseExited(int x, int y);
-    void windowResized(int w, int h);
-    void dragEvent(ofDragInfo dragInfo);
-    void gotMessage(ofMessage msg);
-    
-    ofxCsv csv;
-    vector<string> timeStamp;
-    vector<float> temperature;
-    vector<float> humidityAir;
-    vector<float> pressure;
-    vector<float> illuminance;
-    vector<float> humiditySoil;
-    ofColor color[5];
+    ofxCsv csv; //CSVデータ
+    vector<string> timeStamp; //タイムスタンプ
+    vector<float> temperature; //気温
+    vector<float> humidityAir; //大気湿度
+    vector<float> pressure; //気圧
+    vector<float> illuminance; //照度
+    vector<float> humiditySoil; //土壌湿度
+    ofColor color[5]; //表示する色
 };

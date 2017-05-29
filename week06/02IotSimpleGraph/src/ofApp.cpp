@@ -3,6 +3,13 @@
 void ofApp::setup(){
     ofBackground(0);
     
+    //色を初期化
+    color[0] = ofColor(141,211,199);
+    color[1] = ofColor(255,255,179);
+    color[2] = ofColor(190,186,218);
+    color[3] = ofColor(251,128,114);
+    color[4] = ofColor(128,177,211);
+    
     //CSVファイル読み込み
     if(csv.load("sensor1.csv")) {
         cout << "data loaded" << endl;
@@ -20,13 +27,6 @@ void ofApp::setup(){
         illuminance.push_back(row.getFloat(4));
         humiditySoil.push_back(row.getFloat(5));
     }
-    
-    //色を初期化
-    color[0] = ofColor(141,211,199);
-    color[1] = ofColor(255,255,179);
-    color[2] = ofColor(190,186,218);
-    color[3] = ofColor(251,128,114);
-    color[4] = ofColor(128,177,211);
 }
 
 void ofApp::update(){
@@ -101,59 +101,4 @@ void ofApp::draw(){
         ofVertex(x, y);
     }
     ofEndShape();
-}
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-    
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
 }
