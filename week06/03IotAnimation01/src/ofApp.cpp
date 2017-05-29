@@ -43,8 +43,7 @@ void ofApp::draw(){
     //ピックアップするデータ(列)
     int currentData = ofGetFrameNum() % temperature.size();
     
-    //日付表示
-    ofDrawBitmapString(timeStamp[currentData], 40, 40);
+    ofPushMatrix();
     
     //気温
     max = *max_element(temperature.begin(), temperature.end());
@@ -53,7 +52,8 @@ void ofApp::draw(){
     height = ofMap(temperature[currentData], min, max, 0, graphRect.height);
     ofDrawRectangle(graphRect.x, graphRect.y + graphRect.height, graphRect.width / 5, -height);
     ofSetColor(255);
-    ofDrawBitmapString("Temperture : " + ofToString(temperature[currentData]), graphRect.x, graphRect.y + graphRect.height + 20);
+    ofDrawBitmapString("Temperture : " + ofToString(temperature[currentData]),
+                       graphRect.x, graphRect.y + graphRect.height + 20);
     
     //大気湿度
     ofTranslate(graphRect.width / 5, 0);
@@ -63,7 +63,8 @@ void ofApp::draw(){
     height = ofMap(humidityAir[currentData], min, max, 0, graphRect.height);
     ofDrawRectangle(graphRect.x, graphRect.y + graphRect.height, graphRect.width / 5, -height);
     ofSetColor(255);
-    ofDrawBitmapString("Humidity Air : " + ofToString(humidityAir[currentData]), graphRect.x, graphRect.y + graphRect.height + 20);
+    ofDrawBitmapString("Humidity Air : " + ofToString(humidityAir[currentData]),
+                       graphRect.x, graphRect.y + graphRect.height + 20);
     
     //気圧
     ofTranslate(graphRect.width / 5, 0);
@@ -73,7 +74,8 @@ void ofApp::draw(){
     height = ofMap(pressure[currentData], min, max, 0, graphRect.height);
     ofDrawRectangle(graphRect.x, graphRect.y + graphRect.height, graphRect.width / 5, -height);
     ofSetColor(255);
-    ofDrawBitmapString("Pressure : " + ofToString(pressure[currentData]), graphRect.x, graphRect.y + graphRect.height + 20);
+    ofDrawBitmapString("Pressure : " + ofToString(pressure[currentData]),
+                       graphRect.x, graphRect.y + graphRect.height + 20);
     
     //照度
     ofTranslate(graphRect.width / 5, 0);
@@ -83,7 +85,8 @@ void ofApp::draw(){
     height = ofMap(illuminance[currentData], min, max, graphRect.height, 0);
     ofDrawRectangle(graphRect.x, graphRect.y + graphRect.height, graphRect.width / 5, -height);
     ofSetColor(255);
-    ofDrawBitmapString("Illuminance : " + ofToString(illuminance[currentData]), graphRect.x, graphRect.y + graphRect.height + 20);
+    ofDrawBitmapString("Illuminance : " + ofToString(illuminance[currentData]),
+                       graphRect.x, graphRect.y + graphRect.height + 20);
 
     //土壌湿度
     ofTranslate(graphRect.width / 5, 0);
@@ -93,60 +96,11 @@ void ofApp::draw(){
     height = ofMap(humiditySoil[currentData], min, max, 0, graphRect.height);
     ofDrawRectangle(graphRect.x, graphRect.y + graphRect.height, graphRect.width / 5, -height);
     ofSetColor(255);
-    ofDrawBitmapString("Humidity Soil : " + ofToString(humiditySoil[currentData]), graphRect.x, graphRect.y + graphRect.height + 20);
-}
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
+    ofDrawBitmapString("Humidity Soil : " + ofToString(humiditySoil[currentData]),
+                       graphRect.x, graphRect.y + graphRect.height + 20);
     
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
+    ofPopMatrix();
+    
+    //日付表示
+    ofDrawBitmapStringHighlight(timeStamp[currentData], 40, 40);
 }
