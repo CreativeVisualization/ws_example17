@@ -21,7 +21,6 @@ void ofApp::setup(){
         illuminance.push_back(row.getFloat(4));
         humiditySoil.push_back(row.getFloat(5));
     }
-    
     //色を初期化
     color[0] = ofColor(141,211,199);
     color[1] = ofColor(255,255,179);
