@@ -14,7 +14,9 @@ void ofApp::setup(){
     //load images into vector
     for(int i = 0; i < total; i++) {
         loader.loadFromDisk(images[i], dir.getName(i));
+        images[i].resize(640, 480);
     }
+    cout << total << " images loaded" << endl;
 }
 
 //--------------------------------------------------------------
@@ -26,12 +28,8 @@ void ofApp::update(){
 void ofApp::draw(){
     //set image num
     int currentImage = ofGetFrameNum() % total;
-    //setup image location
-    ofVec2f imageLoc;
-    imageLoc.x = ofGetWidth()/2 - images[currentImage].getWidth()/2;
-    imageLoc.y = ofGetHeight()/2 - images[currentImage].getHeight()/2;
     //draw image
-    images[currentImage].draw(imageLoc);
+    images[currentImage].draw(0, 0, ofGetWidth(), ofGetHeight());
 }
 
 //--------------------------------------------------------------
