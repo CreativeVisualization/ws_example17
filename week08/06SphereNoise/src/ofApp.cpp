@@ -8,7 +8,7 @@ void ofApp::setup(){
     ofEnableDepthTest();
     //ライトを配置
     light.enable();
-    light.setPosition(-100, 100, 500);
+    light.setPosition(-100, 100, 50`00);
     //球からメッシュを生成
     myMesh = ofSpherePrimitive(200, 72).getMesh();
     //メッシュの色を設定
@@ -22,9 +22,11 @@ void ofApp::update(){
     //頂点の数だけ繰り返し
     for (int i = 0; i < myMesh.getVertices().size(); i++) {
         //頂点の位置を取得
-        ofVec3f loc = myMesh.getVertices()[i] / 300.0;
+        ofVec3f loc = myMesh.getVertices()[i] / 1200.0;
         //perlinノイズを生成
-        float noise = ofMap(ofNoise(loc.x, loc.y, loc.z, ofGetElapsedTimef()), 0, 1, 80, 240);
+        float noise1 = ofMap(ofNoise(loc.x, loc.y, loc.z, ofGetElapsedTimef()), 0, 1, 40, 80);
+        float noise2 = ofMap(ofNoise(loc.x, loc.y, loc.z, ofGetElapsedTimef()), 0, 1, 1000, 2000);
+        float noise = noise1 + noise2;
         //ノイズの値で頂点位置を変更
         ofVec3f newLoc = loc.normalize()* noise;
         myMesh.setVertex(i, newLoc);

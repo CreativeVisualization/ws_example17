@@ -2,23 +2,12 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofBackground(0);
-    ofEnableDepthTest(); // 深度テストを有効に
-    ofEnableSmoothing(); // 表示をスムースに
-    
-    // ライティングを有効に
-    light.enable();
-    // スポットライトを配置
-    //light.setSpotlight();
-    light.setDirectional();
-    // 照明の位置
-    light.setPosition(-300, 300, 500);
-    // 環境反射光の色
-    light.setAmbientColor(ofFloatColor(0.4, 0.2, 0.2, 1.0));
-    // 拡散反射光の色
-    light.setDiffuseColor(ofFloatColor(0.5, 0.5, 3.0));
-    // 鏡面反射光の色
-    light.setSpecularColor(ofFloatColor(1.0, 1.0, 1.0));
+    ofSetFrameRate(60);
+
+    // ランダムに周波数の配列を生成
+    for (int i = 0; i < NUM; i++) {
+        freq[i] = ofRandom(4.0, 10.0);
+    }
 }
 
 //--------------------------------------------------------------
@@ -28,21 +17,15 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    cam.begin(); // カメラ開始
+    shader.load("","shader.frag");
     
-    ofSetColor(255);
-    
-    // 立方体
-    box.set(200); // サイズ設定
-    box.setPosition(-150, 0, 0); // 位置
-    box.draw(); // 塗りつぶしで描画
-    
-    // 球
-    sphere.set(100, 16); // 半径と面の細かさ
-    sphere.setPosition(150, 0, 0); // 位置
-    sphere.draw(); // 塗りつぶしで描画
-    
-    cam.end(); // カメラ終了
+    shader.begin();
+    shader.setUniform1f("u_time", ofGetElapsedTimef());
+    shader.setUniform2f("u_resolution", ofGetWidth(), ofGetHeight());
+    //freqの配列をShaderに渡す
+    shader.setUniform1fv("freq", freq, NUM);
+    ofRect(0,0,ofGetWidth(), ofGetHeight());
+    shader.end();
 }
 
 //--------------------------------------------------------------
@@ -56,7 +39,7 @@ void ofApp::keyReleased(int key){
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y){
+void ofApp::mouseMoved(int x, int y ){
     
 }
 
@@ -86,6 +69,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
+void ofApp::dragEvent(ofDragInfo dragInfo){ 
     
 }
